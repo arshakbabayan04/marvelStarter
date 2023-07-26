@@ -1,51 +1,26 @@
-import { Component } from "react/cjs/react.production.min";
-import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
+import { MainPage, ComicsPage, Page404, SingleComicPage } from "../pages";
 import AppHeader from "../appHeader/AppHeader";
-import RandomChar from "../randomChar/RandomChar";
-import CharList from "../charList/CharList";
-import CharInfo from "../charInfo/CharInfo";
-import ErrorBoundary from "../error-Boundary/ErrorBoundary";
 
-import decoration from '../../resources/img/vision.png';
+const App = () => {
 
-class App extends Component {
-
-    state = {
-        selectedChar: null
-    }
-
-    onCharSelected = (id) => {
-        this.setState({
-            selectedChar: id
-        });
-    }
-
-    render() {
-        return (
+    return (
+        <Router>
             <div className="app">
                 <AppHeader/>
                 <main>
-                    <ErrorBoundary>
-                        <RandomChar/>
-                    </ErrorBoundary>
-                    <div className="char__content">
-                        <ErrorBoundary>
-                            <CharList onCharSelected={this.onCharSelected}/>
-                        </ErrorBoundary>
-                        <ErrorBoundary>
-                            <CharInfo charId={this.state.selectedChar}/>
-                        </ErrorBoundary>         
-                    </div>
-                    <img className="bg-decoration" src={decoration} alt="vision"/>
+                    <Routes>
+                        <Route path="/" element={<MainPage/>}/>
+                        <Route path="/comics" element={<ComicsPage/>}/>
+                        <Route path="/comics/:comicId" element={<SingleComicPage/>}/>
+                        <Route path="*" element={<Page404/>}/>
+                    </Routes>
                 </main>
             </div>
-        )
-    }
-}
-
-CharList.propTypes = {
-    onCharSelected: PropTypes.func.isRequired
+        </Router>
+    )
+    
 }
 
 export default App;
