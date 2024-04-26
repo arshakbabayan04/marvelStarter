@@ -44,6 +44,10 @@
             transform: rotate(180deg);
             transition: none;
         }
+        @media (max-width: 1023px) {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
     }
     &__main, &__secondary {
         &:hover {
@@ -90,5 +94,9 @@
     }
     &:disabled {
         filter: grayscale(.5);
+    }
+
+    @media (max-width: 1200px) {
+        min-width: 94px;
     }
 }

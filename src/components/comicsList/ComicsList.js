@@ -54,6 +54,8 @@ const ComicsList = () => {
         setComicsEnded(ended);
     }
 
+    console.log(comicsList);
+
     function renderComics(arr)  {
         const items = arr.map((item, i) => {
             return (

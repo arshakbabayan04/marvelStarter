@@ -26,7 +26,7 @@ const CharList = (props) => {
 
     const [charList, setCharList] = useState([]);
     const [newItemLoading, setNewItemLoading] = useState(false);
-    const [offset, setOffset] = useState(210);
+    const [offset, setOffset] = useState(211);
     const [charEnded, setCharEnded] = useState(false);
     
     const {getAllCharacters, process, setProcess} = useMarvelService();
@@ -88,8 +88,10 @@ const CharList = (props) => {
                                 focusOnItem(i);
                             }
                         }}>
-                            <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
-                            <div className="char__name">{item.name}</div>
+                            <a href="#char_info">
+                                <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
+                                <div className="char__name">{item.name}</div>
+                            </a>
                     </li>
                 </CSSTransition>
             )

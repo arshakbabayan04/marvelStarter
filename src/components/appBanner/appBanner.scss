@@ -15,6 +15,29 @@
             color: #FFFFFF;
             padding-left: 83px;
             padding-top: 18px;
+            @media (max-width: 767px) {
+                padding-left: 20px;
+                font-size: 22px;
+            }
+            @media (max-width: 575px) {
+                padding-left: 10px;
+                padding-top: 0;
+                font-size: 19px;
+            }
+        }
+        @media (max-width: 767px) {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        @media (max-width: 575px) {
+            grid-template-columns: auto auto;
+            align-items: center;
+            img {
+                width: 100px;
+                &:last-child {
+                    display: none;
+                }
+            }
         }
     }
 }

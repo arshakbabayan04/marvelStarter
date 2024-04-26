@@ -41,7 +41,7 @@ const CharInfo = (props) => {
     }
 
     return (
-        <div className="char__info">
+        <div className="char__info" id='char_info'>
             {setContent(process, View, char)}
         </div>
     )
